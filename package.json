@@ -3,17 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run serve ssr",
-    "build": "npm run build ssr",
+    "start": "npm run serve:ssr",
+    "build": "npm run build:ssr",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run Space-X-SSR-Web-App:serve-ssr",
     "serve:ssr": "node dist/Space-X-SSR-Web-App/server/main.js",
     "build:ssr": "ng build --prod && ng run Space-X-SSR-Web-App:server:production",
-    "prerender": "ng run Space-X-SSR-Web-App:prerender",
-    "heroku-postbuild": "ng build --prod && ng run Space-X-SSR-Web-App:server:production",
-    "build:client-and-server-bundles": "ng build --prod && ng run Space-X-SSR-Web-App:server:production --bundleDependencies all"
+    "prerender": "ng run Space-X-SSR-Web-App:prerender"
   },
   "private": true,
   "dependencies": {
