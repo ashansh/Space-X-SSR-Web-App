@@ -47,3 +47,7 @@ Article - https://blog.jscrambler.com/setting-up-angular-server-side-rendering-s
 `Npm install`
 Without Server Side Rendering : `ng serve`
 With Server Side Rendering : `npm run build:ssr` to build the app followed by `npm run serve:ssr` the app will be up and running on `localhost:4000`
+
+## Lighthouse Report
+
+![Alt text](https://user-images.githubusercontent.com/27849750/98439594-e7fd4900-2118-11eb-9e51-6b9862c929ad.png "Optional title")
