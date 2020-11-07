@@ -1,15 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
+import { ConstantFiltersComponent } from './constant-filters/constant-filters.component';
+import { SpaceXService } from './space-x.service';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { LaunchProgramsSpaceXComponent } from './launch-programs-space-x/launch-programs-space-x.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
+      providers: [SpaceXService],
       declarations: [
-        AppComponent
+        AppComponent,
+        ConstantFiltersComponent,
+        LaunchProgramsSpaceXComponent
       ],
     }).compileComponents();
   });
@@ -24,12 +32,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Space-X-SSR-Web-App');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Space-X-SSR-Web-App app is running!');
   });
 });

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConstantFiltersComponent } from './constant-filters/constant-filters.component';
 import { LaunchProgramsSpaceXComponent } from './launch-programs-space-x/launch-programs-space-x.component';
+import { LazyImgDirective } from './LazyImageDirective';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConstantFiltersComponent,
-    LaunchProgramsSpaceXComponent
+    LaunchProgramsSpaceXComponent,
+    LazyImgDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

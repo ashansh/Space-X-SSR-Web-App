@@ -26,10 +26,11 @@ export class LaunchProgramsSpaceXComponent implements OnInit, OnDestroy {
   constructor(private dataService: SpaceXService, private seo: SeoService) {} 
 
   ngOnInit() {
-    this.seo.generateTags()
+    this.seo.generateTags();
     this.dataService.getSpaceXData().pipe(takeUntil(this.destroyed$)).subscribe(data => {
       this.lauchProgramsData = data;
       this.launchDataFilteredArray = [...this.lauchProgramsData];
+      console.log(data);
     })
   }
 
