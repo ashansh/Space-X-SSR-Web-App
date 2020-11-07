@@ -1,0 +1,32 @@
+<div class="filter-container">
+    <div class="filter-text">Filters</div>
+    <div class="launch-filter">
+        <span class="filter-type-text">Launch Year</span>
+        <hr>
+        <div class="filter-list">
+            <div *ngFor="let year of yearFilterArray;" class="filter">
+                <div class="filter-box" (click)="applyYearFilter(year)" [ngClass]="{'selected-filter': selectedYear === year}">{{year}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="launch-filter">
+        <span class="filter-type-text">Successful Launch</span>
+        <hr>
+        <div class="filter-list">
+            <div *ngFor="let launchFilter of launchAndLandFilters" class="filter">
+                <div class="filter-box" (click)="applyLaunchFilter(launchFilter)" [ngClass]="{'selected-filter': launchFilter === selectedLaunchFilter}">{{launchFilter}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="launch-filter">
+        <span class="filter-type-text">Successful Landing</span> 
+        <hr>
+        <div class="filter-list">
+            <div *ngFor="let landFilter of launchAndLandFilters" class="filter">
+                <div class="filter-box" (click)="applyLandFilter(landFilter)" [ngClass]="{'selected-filter': landFilter === selectedLandFilter}">{{landFilter}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="reset-button" (click)="resetAllFilters()">Reset</div>
+</div>

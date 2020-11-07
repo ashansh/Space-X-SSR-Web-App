@@ -1,0 +1,32 @@
+<div class="space-x-container">
+    <div class="filter-container">
+        <app-constant-filters (filterEventEmitter)="appliedFilter($event)"></app-constant-filters>
+    </div>
+    <section class="mission-container">
+        <ng-container *ngIf="launchDataFilteredArray.length">
+            <ng-container *ngFor="let missionName of launchDataFilteredArray">
+                <div class="mission-card">
+                    <picture>
+                        <img width="200" height="200" [src]="missionName.links.mission_patch_small" alt="{{missionName.mission_name}}">
+                    </picture>
+                    <summary>
+                        <div class="mission-name-text">{{missionName.mission_name}} # {{missionName.flight_number}}</div>
+                        <div><b>Mission Ids:</b></div>
+                        <ng-container *ngIf="missionName.mission_id.length; else error_message_id">
+                            <div *ngFor="let ids of missionName.mission_id">
+                                &bull; {{ids}}
+                            </div>
+                        </ng-container>
+                        <ng-template #error_message_id><div>{{missionIdNotFoundMessage}}</div></ng-template>
+                        <div><b>Launch Year: </b>{{missionName.launch_year}}</div>
+                        <div><b>Successful Launch: </b>{{missionName.launch_success}}</div>
+                        <div><b>Successful Landing: </b>{{missionName.rocket.first_stage.cores[0]?.land_success !== null ? missionName.rocket.first_stage.cores[0].land_success : 'N/A'}}</div>
+                    </summary>
+                </div>
+            </ng-container>
+        </ng-container>
+        <article  *ngIf="!launchDataFilteredArray.length && lauchProgramsData">
+            Please try using other filters !
+        </article>
+    </section>
+</div>

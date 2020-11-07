@@ -1,0 +1,67 @@
+@import '../../variables.scss';
+
+.filter-container {
+    background-color: map-get($color-variables, 200);
+    padding: 2% 3% 10% 3%;
+
+    .filter-text {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .launch-filter {
+        margin-bottom: 5%;
+
+        .filter-type-text {
+            display: table;
+            margin: 0 auto;
+        }
+
+        hr {
+            width: 70%;
+        }
+
+        .filter-list {
+            display: flex;
+            flex-wrap: wrap;
+    
+            .filter {
+                flex: 0 50%;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 5%;
+
+                .filter-box {
+                    display: flex;
+                    width: 75%;
+                    background-color: map-get($color-variables, 300);
+                    justify-content: center;
+                    border-radius: 4%;
+                    height: 25px;
+                    align-items: center;
+                    text-transform: capitalize;
+
+                    // span {
+                       
+                    // }
+                }
+
+                .selected-filter {
+                    background-color: map-get($color-variables, 400);
+                }
+            }
+        }
+    }
+
+    .reset-button {
+        cursor: pointer;
+        height: 30px;
+        border-radius: 2%;
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+        background-color: map-get($color-variables, 300);
+        font-size: 25px;
+    }
+}

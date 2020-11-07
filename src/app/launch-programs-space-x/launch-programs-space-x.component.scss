@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+.space-x-container {
+    display: flex;
+
+    .filter-container {
+        margin-left: 1%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+
+    .mission-container {
+        display: flex;
+        flex: 3;
+        flex-wrap: wrap;
+        margin: 0 2%;
+
+        .mission-card {
+            padding: 2%;
+            background-color:  map-get($color-variables, 200);
+            margin: 0 2% 2% 0;
+            max-width: 200px;
+
+            img {
+                background-color:  map-get($color-variables, 100);
+            }
+
+            summary {
+                margin: 5% 0 0 0;
+                text-align: center;
+
+                div {
+                    text-transform: capitalize;
+                    margin-bottom: 3%;
+                }
+
+                .mission-name-text {
+                    color: map-get($color-variables, 600);
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        article {
+            margin: auto auto;
+            font-size: 30px;
+        }
+    }
+}

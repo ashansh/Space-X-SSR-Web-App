@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    max-width: 1440px;
+    margin: 2% auto;
+}
+
+@media screen and (max-width: 700px) {
+    .space-x-container { 
+        flex-direction: column;
+        .mission-container {
+            justify-content: center;
+
+            .mission-card {
+                margin: 0 0 5% 0 !important;
+                padding: 10% !important;
+                max-width: 2000px !important;
+
+                img {
+                    width: 250px !important;
+                }
+            }
+
+            .mission-card:nth-child(1) {
+                padding-top: 0 !important;
+            }
+        }
+    }
+ }
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+    .space-x-container {
+        .mission-container {
+            justify-content: space-evenly;
+
+            .mission-card:nth-child(3n) {
+                margin-right: 0 !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .space-x-container {
+        .mission-container {
+            .mission-card:nth-child(4n) {
+                margin-right: 0 !important;
+            }
+        }
+    }
+}
