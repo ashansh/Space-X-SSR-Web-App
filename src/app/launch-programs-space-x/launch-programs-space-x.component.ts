@@ -27,11 +27,12 @@ export class LaunchProgramsSpaceXComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.seo.generateTags();
-    this.dataService.getSpaceXData().pipe(takeUntil(this.destroyed$)).subscribe(data => {
-      this.lauchProgramsData = data;
-      this.launchDataFilteredArray = [...this.lauchProgramsData];
-      console.log(data);
-    })
+    this.dataService.getSpaceXData().pipe(takeUntil(this.destroyed$)).subscribe(missionData => {
+      if(missionData) {
+        this.lauchProgramsData = missionData;
+        this.launchDataFilteredArray = [...this.lauchProgramsData];
+      };
+    });
   }
 
   appliedFilter(filter: {key: string; value:string}) {
@@ -62,6 +63,7 @@ export class LaunchProgramsSpaceXComponent implements OnInit, OnDestroy {
         this.launchDataFilteredArray = apiData;
       });
     } else {
+      this.params = [];
       this.launchDataFilteredArray = [...this.lauchProgramsData];
     }
   }
