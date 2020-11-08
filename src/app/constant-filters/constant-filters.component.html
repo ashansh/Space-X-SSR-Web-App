@@ -5,8 +5,7 @@
         <hr>
         <div class="filter-list">
             <div *ngFor="let year of yearFilterArray;" class="filter">
-                <div class="filter-box" (click)="applyYearFilter(year)" [ngClass]="{'selected-filter': selectedYear === year}">{{year}}
-                </div>
+                <div class="filter-box" (click)="applyYearFilter(year)" [ngClass]="{'selected-filter': selectedYear === year}">{{year}}</div>
             </div>
         </div>
     </div>

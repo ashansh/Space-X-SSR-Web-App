@@ -4,8 +4,7 @@ import { Subject } from 'rxjs';
 import { SpaceXService } from '../space-x.service';
 import { takeUntil } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import {Location} from '@angular/common'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-launch-programs-space-x',
@@ -16,16 +15,17 @@ export class LaunchProgramsSpaceXComponent implements OnInit, OnDestroy {
 
   @ViewChildren('section') sections: QueryList<ElementRef>;
   
-  lauchProgramsData : any;
-  launchDataFilteredArray = [];
-  missionIdNotFoundMessage: string = 'No Mission Id Found';
-  params = [];
+  public lauchProgramsData : any;
+  public launchDataFilteredArray = [];
+  public missionIdNotFoundMessage: string = 'No Mission Id Found';
+  private params = [];
 
   private destroyed$: Subject<boolean> = new Subject();
 
-  constructor(private dataService: SpaceXService, private seo: SeoService) {} 
+  constructor(private dataService: SpaceXService, private seo: SeoService, private router: Router) {} 
 
   ngOnInit() {
+    this.router.navigate(['/home']);
     this.seo.generateTags();
     this.dataService.getSpaceXData().pipe(takeUntil(this.destroyed$)).subscribe(missionData => {
       if(missionData) {
@@ -60,7 +60,9 @@ export class LaunchProgramsSpaceXComponent implements OnInit, OnDestroy {
         httpparams = httpparams.append(element.key, element.value);
       });
       this.dataService.getMissionsByFilter(httpparams).subscribe(apiData => {
-        this.launchDataFilteredArray = apiData;
+        if(apiData) {
+          this.launchDataFilteredArray = apiData;
+        }
       });
     } else {
       this.params = [];

@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description
 
 The app is built using Space-X public api and is Server Side Rendered using Angular Universal.
+The app is deployed using continous integration on Heroku and Github.
 Please find the Lighthouse report attached.
 
 ## Development server

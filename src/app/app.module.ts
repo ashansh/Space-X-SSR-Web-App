@@ -7,6 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConstantFiltersComponent } from './constant-filters/constant-filters.component';
 import { LaunchProgramsSpaceXComponent } from './launch-programs-space-x/launch-programs-space-x.component';
 import { LazyImgDirective } from './LazyImageDirective';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: 'filter/:someParam',
+    component: LaunchProgramsSpaceXComponent
+  },
+  {
+    path: 'home',
+    component: LaunchProgramsSpaceXComponent
+  },
+  {
+    path: '*',
+    redirectTo: '/home'
+  }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +34,8 @@ import { LazyImgDirective } from './LazyImageDirective';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
